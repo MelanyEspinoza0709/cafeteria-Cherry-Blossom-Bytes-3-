@@ -55,6 +55,11 @@ def encuesta_satisfaccion(encuesta):
         mensaje = "Gracias por responder."
     return mensaje
 
+def mostrar_factura(**datos):
+    print("******* SU FACTURA OwO ********")
+    for clave, valor in datos.items():
+        print(f"{clave}: {valor}")
+
 total = 0
 print("/////////////////////////////////////////////////////")
 print("..............Cherry Blossom Bytes <3 ...............")
@@ -115,14 +120,11 @@ if op == 1:
         print("1. Confirmo mi pedido :-3")
         print("2. Cancelo mi pedido >.<")
         confirmar = int(input(""))
+        
         if confirmar == 1:
             total = total + factura
             print("Pedido confirmado correctamente")
-            print("****************** SU FACTURA OwO ******************")
-            print("Producto:", orden)
-            print("Cantidad:", cantidad)
-            print("Subtotal:", factura)
-            print("Total acumulado:", total)
+            mostrar_factura(Producto=orden,Cantidad=cantidad,Subtotal=factura,Total_acumulado=total)
         else:
             print("No se preocupe, pedido cancelado correctamente =P")
 
